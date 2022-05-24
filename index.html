@@ -11,6 +11,7 @@
   <body>
     <div id="app">
       <div class="nav-bar"></div>
+      <div class="cart">Cart({{ cart }})</div>
       
       <div class="product-display">
         <div class="product-container">
@@ -29,6 +30,13 @@
             <p v-if="inventory > 10">In Stock</p>
             <p v-else-if="inventory > 0 && inventory <= 10">Almost Sold Out!</p>
             <p v-else">Out of Stock</p>
+                      
+            <div v-for="item in variants" :key="item.id" @mouseover="updateImage(item.image)">
+              {{ item.color }}
+            </div>
+
+            <button class="button" @click="addToCart">Add to Cart</button>
+            <button class="button" @click="removeToCart">Remove to Cart</button>
             <a :href="url">Click here to see information!</a>
           </div>
         </div>
