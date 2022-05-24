@@ -20,6 +20,15 @@
           <div class="product-info">
             <h1>{{ girl }}</h1>
             <p>{{ description }}</p>
+            <p v-show="isFemale">Female</p>
+            <!-- <p v-else>Male</p> -->
+
+            <p v-if="isRelease">Released!</p>
+            <p v-else>Not Release</p>
+
+            <p v-if="inventory > 10">In Stock</p>
+            <p v-else-if="inventory > 0 && inventory <= 10">Almost Sold Out!</p>
+            <p v-else">Out of Stock</p>
             <a :href="url">Click here to see information!</a>
           </div>
         </div>
