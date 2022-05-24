@@ -8,6 +8,10 @@ const app = Vue.createApp({
             image: './assets/images/ikaros_1.jpg',
             description:
                 'Ikaros is the sole heir of the renowned Mage family of Penglai Island.',
+            url: 'https://www.youtube.com/watch?v=RsaOpPR0YN0',
+            isFemale: true,
+            inventory: 0,
+            isRelease: true,
             variants: [
                 {
                     id: 2234,

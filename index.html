@@ -11,26 +11,33 @@
   <body>
     <div id="app">
       <div class="nav-bar"></div>
-
       <div class="cart">Cart({{ cart }})</div>
       
       <div class="product-display">
         <div class="product-container">
           <div class="product-image">
-            <img :src="image">
+            <img :src="image" alt="profile-image">
           </div>
           <div class="product-info">
-            <h1>{{ product }}</h1>
-            <p v-if="inStock">In Stock</p>
-            <p v-else>Out of Stock</p>
+            <h1>{{ girl }}</h1>
+            <p>{{ description }}</p>
+            <p v-show="isFemale">Female</p>
+            <!-- <p v-else>Male</p> -->
 
+            <p v-if="isRelease">Released!</p>
+            <p v-else>Not Release</p>
 
+            <p v-if="inventory > 10">In Stock</p>
+            <p v-else-if="inventory > 0 && inventory <= 10">Almost Sold Out!</p>
+            <p v-else">Out of Stock</p>
+                      
             <div v-for="item in variants" :key="item.id" @mouseover="updateImage(item.image)">
               {{ item.color }}
             </div>
 
             <button class="button" @click="addToCart">Add to Cart</button>
             <button class="button" @click="removeToCart">Remove to Cart</button>
+            <a :href="url">Click here to see information!</a>
           </div>
         </div>
       </div>
