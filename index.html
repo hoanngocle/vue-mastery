@@ -23,7 +23,7 @@
               >
           </div>
           <div class="product-info">
-            <h1>{{ girl }}</h1>
+            <h1>{{ title }}</h1>
             <!-- <p>{{ description }}</p> -->
             <!-- <p v-show="isFemale">Female</p> -->
             <!-- <p v-else>Male</p> -->
@@ -35,9 +35,9 @@
             <p v-else>Out of Stock</p>
                       
             <div 
-              v-for="item in variants" 
+              v-for="(item, index) in variants" 
               :key="item.id" 
-              @mouseover="updateImage(item.image)"
+              @mouseover="updateVariant(index)"
               class="color-circle"
               :style="{ backgroundColor: item.color}"
               >
