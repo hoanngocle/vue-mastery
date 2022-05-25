@@ -11,7 +11,7 @@ const app = Vue.createApp({
             url: 'https://www.youtube.com/watch?v=RsaOpPR0YN0',
             isFemale: true,
             inventory: 0,
-            isRelease: true,
+            inStock: false,
             variants: [
                 {
                     id: 2234,
