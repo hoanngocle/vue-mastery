@@ -1,67 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Vue Mastery</title>
-    <!-- Import Styles -->
-    <link rel="stylesheet" href="./assets/styles.css" />
-    <!-- Import Vue.js -->
-    <script src="https://unpkg.com/vue@3"></script>
-  </head>
-  <body>
-    <div id="app">
-      <div class="nav-bar"></div>
-      <div class="cart">Cart({{ cart }})</div>
-      
-      <div class="product-display">
-        <div class="product-container">
-          <div class="product-image">
-            <img 
-              :src="image"
-              alt="profile-image"
-              :class="[inStock ? '' : 'out-of-stock-img']"
-              >
-          </div>
-          <div class="product-info">
-            <h1>{{ title }}</h1>
-            <!-- <p>{{ description }}</p> -->
-            <!-- <p v-show="isFemale">Female</p> -->
-            <!-- <p v-else>Male</p> -->
-
-            <!-- <p v-if="isRelease">Released!</p> -->
-            <!-- <p v-else>Not Release</p> -->
-
-            <p v-if="inStock">In Stock</p>
-            <p v-else>Out of Stock</p>
-                      
-            <div 
-              v-for="(item, index) in variants" 
-              :key="item.id" 
-              @mouseover="updateVariant(index)"
-              class="color-circle"
-              :style="{ backgroundColor: item.color}"
-              >
-            </div>
-
-            <button 
-              class="button"
-              :class="{ disabledButton: !inStock }"
-              :disabled="!inStock"
-              @click="addToCart">Add to Cart
-            </button>
-            <button class="button" @click="removeToCart">Remove to Cart</button>
-            <a :href="url">Click here to see information!</a>
-          </div>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Vue Mastery</title>
+        <!-- Import Styles -->
+        <link rel="stylesheet" href="./assets/styles.css" />
+        <!-- Import Vue.js -->
+        <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div class="nav-bar"></div>
+            <div class="cart">Cart({{ cart }})</div>
+            <product-display :premium="premium"></product-display>
         </div>
-      </div>
-    </div>
 
-    <!-- Import App -->
-    <script src="./main.js"></script>
+        <!-- Import App -->
+        <script src="./main.js"></script>
+        <!-- Import Component -->
+        <script src="./components/ProductDisplay.js"></script>
 
-    <!-- Mount App -->
-    <script>
-      const mountApp = app.mount('#app');
-    </script>
-  </body>
+        <!-- Mount App -->
+        <script>
+        const mountApp = app.mount('#app');
+        </script>
+    </body>
 </html>
